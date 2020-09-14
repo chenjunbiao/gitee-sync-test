@@ -23,6 +23,6 @@ jobs:
           dst: gitee/yomorun
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
-          white_list: "sync-test1"
+          static_list: "sync-test1"
           force_update: true
           debug: true
