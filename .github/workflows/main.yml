@@ -16,13 +16,15 @@ jobs:
     name: Run
     runs-on: ubuntu-latest
     steps:
-    - name: Single repo mirror
-      uses: chenjunbiao/gitee-sync-test@master
-      with:
-        src: github/chenjunbiao
-        dst: gitee/yomorun
-        dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
-        dst_token: ${{ secrets.GITEE_TOKEN }}
-        white_list: "sync-test1"
-        force_update: true
-        debug: true
+      - name: Checkout source codes
+        uses: actions/checkout@v1
+      - name: Mirror Github to Gitee with white list
+        uses: ./.
+        with:
+          src: github/chenjunbiao
+          dst: gitee/yomorun
+          dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+          dst_token:  ${{ secrets.GITEE_TOKEN }}
+          static_list: 'sync-test1'
+          force_update: true
+          debug: true
