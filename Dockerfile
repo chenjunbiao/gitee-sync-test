@@ -1,6 +1,7 @@
-FROM registry.cn-beijing.aliyuncs.com/cella-images/yomo-gitee-client:latest
+FROM alpine
 
-RUN cat /root/.ssh/id_rsa
+RUN apk add --no-cache git openssh-client bash jq curl&& \
+  echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
 
 ADD *.sh /
 
