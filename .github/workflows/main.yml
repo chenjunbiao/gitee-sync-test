@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Single repo mirror
-        uses: chenjunbiao/gitee-sync-test@master
+        uses: Yikun/hub-mirror-action@master
         with:
           src: github/chenjunbiao
           dst: gitee/yomorun
